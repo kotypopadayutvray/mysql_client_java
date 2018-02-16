@@ -1,11 +1,13 @@
+package com.mgolikov.main;
+
 import java.sql.*;
 
 public class Main {
 	public static void main(String[] args) {
 		String jdbc_driver = "com.mysql.jdbc.Driver";
 		String host = "jdbc:mysql://localhost/my_db?useSSL=true";
-		String password = "myawesomepass";
-		String username = "myawesomeuser";
+		String password = "myawesomepassword";
+		String username = "myawesomeusername";
 		Connection connection = null;
 		Statement stmt = null;
 
@@ -24,20 +26,20 @@ public class Main {
 				System.out.print(", name: " + name);
 				System.out.println(", year: " + year);
 			}
-      	
+
 			rs.close();
 			stmt.close();
 			connection.close();
-      	} catch(SQLException se) {
+		} catch(SQLException se) {
 			se.printStackTrace();
-      	} catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
-      	} finally {
+		} finally {
 			try {
 				if(stmt!=null)
 				stmt.close();
 			} catch(SQLException se2) { }
-      		
+
 			try {
 				if(connection!=null)
 				connection.close();
